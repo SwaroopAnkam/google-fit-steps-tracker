@@ -7,14 +7,13 @@ const cors = require("cors");
 const { Client, ID, Databases } = require("node-appwrite");
 require("dotenv").config();
 
-const credentials = require("./creds.json");
+// const credentials = require("./creds.json");
 const { fitness } = require("googleapis/build/src/apis/fitness");
 
-const { client_secret, client_id, redirect_uris } = credentials.web;
 const oAuth2Client = new google.auth.OAuth2(
-  client_id,
-  client_secret,
-  redirect_uris
+  process.env.CLIENT_ID,
+  process.env.SECRET_KEY_ID,
+  process.env.REDIRECT_URLS
 );
 
 const client = new Client();
