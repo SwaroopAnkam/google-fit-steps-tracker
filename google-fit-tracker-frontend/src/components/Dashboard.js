@@ -27,7 +27,7 @@ const Dashboard = () => {
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      axios.get("http://localhost:8000/fetch-data").then((response) => {
+      axios.get(`${process.env.BASE_URL}/fetch-data`).then((response) => {
         // Handle the retrieved data
         setFitnessData(response.data);
         setIsLoading(false);

@@ -17,7 +17,7 @@ function FirstPage() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/auth/google");
+      const response = await axios.get(`${process.env.BASE_URL}/auth/google`);
       console.log(response.data.authUrl);
       window.location.href = response.data.authUrl;
     } catch (error) {

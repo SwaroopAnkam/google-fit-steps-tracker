@@ -42,9 +42,7 @@ const secretKey = crypto.randomBytes(32).toString("hex");
 
 const app = express();
 app.use(
-  cors({
-    origin: "http://localhost:3000", // Replace with the actual origin of your React app
-  })
+  cors()
 );
 
 app.use(
@@ -98,7 +96,7 @@ app.get("/auth/google/callback", async (req, res) => {
 
     req.session.userProfile = profile;
     userProfileData = profile;
-    res.redirect("http://localhost:3000/dashboard");
+    res.redirect(`${process.env.FRONTEND_URL}/dashboard`);
 
     // res.redirect("/fetch-data");
   } catch (error) {
